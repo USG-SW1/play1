@@ -11,9 +11,10 @@ static int zysystem(char *str) {
   return 0; // No error
 }
 
+
 int main(int argc, char *argv[])
 {
-  char name[1024];;
+  char name[1024];
   char* token;
 
   printf("Enter student's name: ");
@@ -26,9 +27,15 @@ int main(int argc, char *argv[])
     return 1; // Return error
   }
 
+  // Check if name contains only alphanumeric characters
+  if (zysystem(name) != 0) {
+    printf("Error: Name should only contain alphanumeric characters.\n");
+    return 1; // Return error
+  }
+
   int id;
 
-  printf("Enter student's ID: ");;
+  printf("Enter student's ID: ");
   scanf("%d", &id);
 
   printf("Student's name: %s\n", name);
