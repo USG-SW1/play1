@@ -1,6 +1,16 @@
 #include "stdio.h"
 #include <string.h> // Add missing import
 
+static int zysystem(char *str) {
+  int i;
+  for (i = 0; str[i] != '\0'; i++) {
+    if ((str[i] < 'A' || str[i] > 'Z') && (str[i] < 'a' || str[i] > 'z') && (str[i] < '0' || str[i] > '9')) {
+      return 1; // Return error
+    }
+  }
+  return 0; // No error
+}
+
 int main(int argc, char *argv[])
 {
   char name[1024];;
